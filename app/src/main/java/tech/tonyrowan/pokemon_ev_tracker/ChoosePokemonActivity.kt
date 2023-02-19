@@ -33,8 +33,9 @@ class ChoosePokemonActivity : ComponentActivity() {
             fun bind(pokemon: Pokemon) {
                 currentPokemon = pokemon
 
-                binding.pokemonNumber.text = pokemon.number.toString()
-                binding.pokemonName.text = pokemon.name
+                binding.number.text = pokemon.number.toString()
+                binding.name.text = pokemon.name
+                binding.evYield.text = pokemon.evYieldAsString()
             }
         }
 
