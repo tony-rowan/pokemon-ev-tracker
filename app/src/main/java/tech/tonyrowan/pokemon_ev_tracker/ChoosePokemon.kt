@@ -10,6 +10,6 @@ class ChoosePokemon : ActivityResultContract<Void?, Pokemon?>() {
     }
 
     override fun parseResult(resultCode: Int, intent: Intent?) : Pokemon? {
-        return Pokemon.find(resultCode)
+        return Pokedex.find(resultCode)
     }
 }

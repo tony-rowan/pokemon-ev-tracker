@@ -35,7 +35,7 @@ class ChoosePokemonActivity : ComponentActivity() {
 
                 binding.number.text = pokemon.number.toString()
                 binding.name.text = pokemon.name
-                binding.evYield.text = pokemon.evYieldAsString()
+                binding.evYield.text = pokemon.evYield.toString()
             }
         }
 
@@ -63,12 +63,15 @@ class ChoosePokemonActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        Pokedex.loadPokemon(resources)
+
         binding = ActivityChoosePokemonBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val pokemonAdapter = PokemonAdapter { pokemon -> adapterOnClick(pokemon) }
         binding.pokemonList.adapter = pokemonAdapter
-        pokemonAdapter.submitList(Pokemon.list)
+        pokemonAdapter.submitList(Pokedex.pokemon.toList())
     }
 
     private fun adapterOnClick(pokemon: Pokemon) {

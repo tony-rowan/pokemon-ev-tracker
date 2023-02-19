@@ -17,23 +17,21 @@ class MainActivity : ComponentActivity() {
 
     private val startForResult = registerForActivityResult(ChoosePokemon()) { result: Pokemon? ->
         result?.let {
-            result.evYield.forEach {
-                when (it.name) {
-                    "HP" -> hp += it.amount
-                    "Attack" -> attack += it.amount
-                    "Defense" -> defense += it.amount
-                    "Special Attack" -> specialAttack += it.amount
-                    "Special Defense" -> specialDefense += it.amount
-                    "Speed" -> speed += it.amount
-                }
-
-                syncStatsWithLabels()
-            }
+            hp += result.evYield.hp
+            attack += result.evYield.attack
+            defense += result.evYield.defense
+            specialAttack += result.evYield.specialAttack
+            specialDefense += result.evYield.specialDefense
+            speed += result.evYield.speed
+            syncStatsWithLabels()
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        Pokedex.loadPokemon(resources)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -51,6 +49,8 @@ class MainActivity : ComponentActivity() {
 
             syncStatsWithLabels()
         }
+
+        resources.openRawResource(R.raw.pokemon)
     }
 
     private fun syncStatsWithLabels() {
