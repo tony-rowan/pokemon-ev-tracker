@@ -12,12 +12,6 @@ import tech.tonyrowan.pokemon_ev_tracker.databinding.ActivityChoosePokemonBindin
 import tech.tonyrowan.pokemon_ev_tracker.databinding.PokemonListItemBinding
 
 class ChoosePokemonActivity : ComponentActivity() {
-    private var pokemon : List<Pokemon> = listOf(
-      Pokemon(1, "bulbasaur"),
-      Pokemon(2, "Ivysaur"),
-      Pokemon(3, "Venasaur")
-    )
-
     private lateinit var binding: ActivityChoosePokemonBinding
 
     class PokemonAdapter(private val onClick: (Pokemon) -> Unit) :
@@ -73,7 +67,7 @@ class ChoosePokemonActivity : ComponentActivity() {
 
         val pokemonAdapter = PokemonAdapter { pokemon -> adapterOnClick(pokemon) }
         binding.pokemonList.adapter = pokemonAdapter
-        pokemonAdapter.submitList(pokemon)
+        pokemonAdapter.submitList(Pokemon.list)
     }
 
     private fun adapterOnClick(pokemon: Pokemon) {

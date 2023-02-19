@@ -9,9 +9,10 @@ class MainActivity : ComponentActivity() {
     private lateinit var binding: ActivityMainBinding
 
     private val startForResult = registerForActivityResult(ChoosePokemon()) { result: Pokemon? ->
-        result.apply {
+        result?.let {
             // Add stats to tracker
             Log.d("Pokemon","Added defeated pokemon $result")
+
         }
     }
 
