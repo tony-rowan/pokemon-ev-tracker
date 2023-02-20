@@ -16,7 +16,7 @@ class MainActivity : ComponentActivity() {
     private var specialDefense = 0
     private var speed = 0
 
-    private val startForResult = registerForActivityResult(ChoosePokemon()) { result: Pokemon? ->
+    private val startForResult = registerForActivityResult(ChoosePokemonContract()) { result: Pokemon? ->
         result?.let {
             hp += result.evYield.hp
             attack += result.evYield.attack
