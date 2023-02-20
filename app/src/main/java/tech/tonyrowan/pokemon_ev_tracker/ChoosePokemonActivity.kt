@@ -8,6 +8,8 @@ import androidx.activity.ComponentActivity
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import tech.tonyrowan.pokemon_ev_tracker.data.Pokedex
+import tech.tonyrowan.pokemon_ev_tracker.data.Pokemon
 import tech.tonyrowan.pokemon_ev_tracker.databinding.ActivityChoosePokemonBinding
 import tech.tonyrowan.pokemon_ev_tracker.databinding.PokemonListItemBinding
 

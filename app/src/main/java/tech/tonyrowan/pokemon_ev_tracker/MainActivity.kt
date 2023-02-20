@@ -1,8 +1,9 @@
 package tech.tonyrowan.pokemon_ev_tracker
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
+import tech.tonyrowan.pokemon_ev_tracker.data.Pokedex
+import tech.tonyrowan.pokemon_ev_tracker.data.Pokemon
 import tech.tonyrowan.pokemon_ev_tracker.databinding.ActivityMainBinding
 
 class MainActivity : ComponentActivity() {
