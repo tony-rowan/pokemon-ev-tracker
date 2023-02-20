@@ -1,29 +1,36 @@
 package tech.tonyrowan.pokemon_ev_tracker
 
 import android.os.Bundle
+import android.preference.PreferenceManager
 import androidx.activity.ComponentActivity
 import tech.tonyrowan.pokemon_ev_tracker.data.Pokedex
 import tech.tonyrowan.pokemon_ev_tracker.data.Pokemon
+import tech.tonyrowan.pokemon_ev_tracker.data.PokemonStats
 import tech.tonyrowan.pokemon_ev_tracker.databinding.ActivityMainBinding
 
 class MainActivity : ComponentActivity() {
     private lateinit var binding: ActivityMainBinding
 
-    private var hp = 0
-    private var attack = 0
-    private var defense = 0
-    private var specialAttack = 0
-    private var specialDefense = 0
-    private var speed = 0
+    private val currentStats = PokemonStats()
 
     private val startForResult = registerForActivityResult(ChoosePokemonContract()) { result: Pokemon? ->
         result?.let {
-            hp += result.evYield.hp
-            attack += result.evYield.attack
-            defense += result.evYield.defense
-            specialAttack += result.evYield.specialAttack
-            specialDefense += result.evYield.specialDefense
-            speed += result.evYield.speed
+            currentStats.hp += result.evYield.hp
+            currentStats.attack += result.evYield.attack
+            currentStats.defense += result.evYield.defense
+            currentStats.specialAttack += result.evYield.specialAttack
+            currentStats.specialDefense += result.evYield.specialDefense
+            currentStats.speed += result.evYield.speed
+
+            val preferences = getPreferences(MODE_PRIVATE).edit()
+            preferences.putInt("hp", currentStats.hp)
+            preferences.putInt("attack", currentStats.attack)
+            preferences.putInt("defense", currentStats.defense)
+            preferences.putInt("special-attack", currentStats.specialAttack)
+            preferences.putInt("special-defense", currentStats.specialDefense)
+            preferences.putInt("speed", currentStats.speed)
+            preferences.apply()
+
             syncStatsWithLabels()
         }
     }
@@ -41,25 +48,33 @@ class MainActivity : ComponentActivity() {
         }
 
         binding.reset.setOnClickListener {
-            hp = 0
-            attack = 0
-            defense = 0
-            specialAttack = 0
-            specialDefense = 0
-            speed = 0
+            currentStats.hp = 0
+            currentStats.attack = 0
+            currentStats.defense = 0
+            currentStats.specialAttack = 0
+            currentStats.specialDefense = 0
+            currentStats.speed = 0
 
             syncStatsWithLabels()
         }
 
-        resources.openRawResource(R.raw.pokemon)
+        val preferences = getPreferences(MODE_PRIVATE)
+        currentStats.hp = preferences.getInt("hp", 0)
+        currentStats.attack = preferences.getInt("attack", 0)
+        currentStats.defense = preferences.getInt("defense", 0)
+        currentStats.specialAttack = preferences.getInt("special-attack", 0)
+        currentStats.specialDefense = preferences.getInt("special-defense", 0)
+        currentStats.speed = preferences.getInt("speed", 0)
+
+        syncStatsWithLabels()
     }
 
     private fun syncStatsWithLabels() {
-        binding.hpStat.text = hp.toString()
-        binding.attackStat.text = attack.toString()
-        binding.defenseStat.text = defense.toString()
-        binding.specialAttackStat.text = specialAttack.toString()
-        binding.specialDefenseStat.text = specialDefense.toString()
-        binding.speedStat.text = speed.toString()
+        binding.hpStat.text = currentStats.hp.toString()
+        binding.attackStat.text = currentStats.attack.toString()
+        binding.defenseStat.text = currentStats.defense.toString()
+        binding.specialAttackStat.text = currentStats.specialAttack.toString()
+        binding.specialDefenseStat.text = currentStats.specialDefense.toString()
+        binding.speedStat.text = currentStats.speed.toString()
     }
 }
