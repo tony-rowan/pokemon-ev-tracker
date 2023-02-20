@@ -9,7 +9,7 @@ import tech.tonyrowan.pokemon_ev_tracker.data.Pokemon
 import tech.tonyrowan.pokemon_ev_tracker.databinding.PokemonListItemBinding
 
 class PokemonAdapter(private val onClick: (Pokemon) -> Unit) :
-    ListAdapter<Pokemon, PokemonAdapter.PokemonViewHolder>(ChoosePokemonActivity.PokemonDiffCallback) {
+    ListAdapter<Pokemon, PokemonAdapter.PokemonViewHolder>(PokemonDiffCallback) {
 
     class PokemonViewHolder(itemView: View, val onClick: (Pokemon) -> Unit) :
         RecyclerView.ViewHolder(itemView) {
