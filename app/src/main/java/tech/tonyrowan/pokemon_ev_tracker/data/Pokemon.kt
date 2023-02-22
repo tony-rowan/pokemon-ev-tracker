@@ -5,5 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty
 data class Pokemon(
     val number: Int,
     val name: String,
-    @JsonProperty("ev_yield") val evYield: PokemonStats
+    @JsonProperty("ev_yield") val evYield: PokemonStats,
+    @JsonProperty("image") val sprite: String?
 )

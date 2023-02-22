@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import tech.tonyrowan.pokemon_ev_tracker.data.Pokemon
 import tech.tonyrowan.pokemon_ev_tracker.databinding.PokemonListItemBinding
 
@@ -30,6 +31,7 @@ class PokemonAdapter(private val onClick: (Pokemon) -> Unit) :
             binding.number.text = "#%03d".format(pokemon.number)
             binding.name.text = pokemon.name
             binding.evYield.text = "Yield: ${pokemon.evYield}"
+            binding.pokemonSprite.load(pokemon.sprite)
         }
     }
 

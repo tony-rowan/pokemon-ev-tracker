@@ -6,8 +6,8 @@ data class PokemonStats(
     var hp: Int = 0,
     var attack: Int = 0,
     var defense: Int = 0,
-    @JsonProperty("special-attack") var specialAttack: Int = 0,
-    @JsonProperty("special-defense") var specialDefense: Int = 0,
+    @JsonProperty("special_attack") var specialAttack: Int = 0,
+    @JsonProperty("special_defense") var specialDefense: Int = 0,
     var speed: Int = 0
 ) {
 
