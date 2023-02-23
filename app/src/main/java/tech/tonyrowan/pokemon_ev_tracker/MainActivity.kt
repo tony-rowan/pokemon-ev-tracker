@@ -70,11 +70,18 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun syncStatsWithLabels() {
-        binding.hpStat.text = currentStats.hp.toString()
-        binding.attackStat.text = currentStats.attack.toString()
-        binding.defenseStat.text = currentStats.defense.toString()
-        binding.specialAttackStat.text = currentStats.specialAttack.toString()
-        binding.specialDefenseStat.text = currentStats.specialDefense.toString()
-        binding.speedStat.text = currentStats.speed.toString()
+        binding.hpEvCount.text = currentStats.hp.toString()
+        binding.attackEvCount.text = currentStats.attack.toString()
+        binding.defenseEvCount.text = currentStats.defense.toString()
+        binding.specialAttackEvCount.text = currentStats.specialAttack.toString()
+        binding.specialDefenseEvCount.text = currentStats.specialDefense.toString()
+        binding.speedEvCount.text = currentStats.speed.toString()
+
+        binding.hpStatCount.text = (currentStats.hp / 4).toString()
+        binding.attackStatCount.text = (currentStats.attack / 4).toString()
+        binding.defenseStatCount.text = (currentStats.defense / 4).toString()
+        binding.specialAttackStatCount.text = (currentStats.specialAttack / 4).toString()
+        binding.specialDefenseStatCount.text = (currentStats.specialDefense / 4).toString()
+        binding.speedStatCount.text = (currentStats.speed / 4).toString()
     }
 }

@@ -8,142 +8,334 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/hpStatLabel"
+        android:id="@+id/hp_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/hp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/hpStat"
+        android:id="@+id/hp_ev_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/zero"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@id/hpStatLabel"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="@string/evs"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hp_title" />
 
     <TextView
-        android:id="@+id/attackStatLabel"
+        android:id="@+id/hp_ev_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:text="@string/zero"
+        app:layout_constraintStart_toEndOf="@+id/hp_ev_label"
+        app:layout_constraintTop_toBottomOf="@+id/hp_title" />
+
+    <TextView
+        android:id="@+id/hp_stat_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/stats"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintStart_toEndOf="@+id/hp_ev_count"
+        app:layout_constraintTop_toBottomOf="@+id/hp_title" />
+
+    <TextView
+        android:id="@+id/hp_stat_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/zero"
+        app:layout_constraintStart_toEndOf="@+id/hp_stat_label"
+        app:layout_constraintTop_toBottomOf="@+id/hp_title" />
+
+    <TextView
+        android:id="@+id/attack_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
         android:text="@string/attack"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/hpStatLabel" />
-
-    <TextView
-        android:id="@+id/attackStat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/zero"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@id/attackStatLabel"
-        app:layout_constraintTop_toBottomOf="@id/hpStat" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hp_ev_label" />
 
     <TextView
-        android:id="@+id/defenseStatLabel"
+        android:id="@+id/attack_ev_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:text="@string/evs"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/attack_title" />
+
+    <TextView
+        android:id="@+id/attack_ev_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/zero"
+        app:layout_constraintStart_toEndOf="@+id/attack_ev_label"
+        app:layout_constraintTop_toBottomOf="@+id/attack_title" />
+
+    <TextView
+        android:id="@+id/attack_stat_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/stats"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintStart_toEndOf="@id/attack_ev_count"
+        app:layout_constraintTop_toBottomOf="@+id/attack_title" />
+
+    <TextView
+        android:id="@+id/attack_stat_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/zero"
+        app:layout_constraintStart_toEndOf="@+id/attack_stat_label"
+        app:layout_constraintTop_toBottomOf="@+id/attack_title" />
+
+    <TextView
+        android:id="@+id/defense_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
         android:text="@string/defense"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/attackStatLabel" />
-
-    <TextView
-        android:id="@+id/defenseStat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/zero"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@id/defenseStatLabel"
-        app:layout_constraintTop_toBottomOf="@id/attackStat" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/attack_ev_label" />
 
     <TextView
-        android:id="@+id/specialAttackStatLabel"
+        android:id="@+id/defense_ev_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:text="@string/evs"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/defense_title" />
+
+    <TextView
+        android:id="@+id/defense_ev_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/zero"
+        app:layout_constraintStart_toEndOf="@+id/defense_ev_label"
+        app:layout_constraintTop_toBottomOf="@+id/defense_title" />
+
+    <TextView
+        android:id="@+id/defense_stat_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/stats"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintStart_toEndOf="@id/defense_ev_count"
+        app:layout_constraintTop_toBottomOf="@+id/defense_title" />
+
+    <TextView
+        android:id="@+id/defense_stat_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/zero"
+        app:layout_constraintStart_toEndOf="@+id/defense_stat_label"
+        app:layout_constraintTop_toBottomOf="@+id/defense_title" />
+
+    <TextView
+        android:id="@+id/special_attack_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
         android:text="@string/special_attack"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/defenseStatLabel" />
-
-    <TextView
-        android:id="@+id/specialAttackStat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/zero"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@id/specialAttackStatLabel"
-        app:layout_constraintTop_toBottomOf="@id/defenseStat" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/defense_ev_label" />
 
     <TextView
-        android:id="@+id/specialDefenseStatLabel"
+        android:id="@+id/special_attack_ev_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:text="@string/evs"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/special_attack_title" />
+
+    <TextView
+        android:id="@+id/special_attack_ev_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/zero"
+        app:layout_constraintStart_toEndOf="@+id/special_attack_ev_label"
+        app:layout_constraintTop_toBottomOf="@+id/special_attack_title" />
+
+    <TextView
+        android:id="@+id/special_attack_stat_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/stats"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintStart_toEndOf="@id/special_attack_ev_count"
+        app:layout_constraintTop_toBottomOf="@+id/special_attack_title" />
+
+    <TextView
+        android:id="@+id/special_attack_stat_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/zero"
+        app:layout_constraintStart_toEndOf="@+id/special_attack_stat_label"
+        app:layout_constraintTop_toBottomOf="@+id/special_attack_title" />
+
+    <TextView
+        android:id="@+id/special_defense_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
         android:text="@string/special_defense"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/specialAttackStatLabel" />
-
-    <TextView
-        android:id="@+id/specialDefenseStat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/zero"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@id/specialDefenseStatLabel"
-        app:layout_constraintTop_toBottomOf="@id/specialAttackStat" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/special_attack_ev_label" />
 
     <TextView
-        android:id="@+id/speedStatLabel"
+        android:id="@+id/special_defense_ev_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:text="@string/evs"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/special_defense_title" />
+
+    <TextView
+        android:id="@+id/special_defense_ev_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/zero"
+        app:layout_constraintStart_toEndOf="@+id/special_defense_ev_label"
+        app:layout_constraintTop_toBottomOf="@+id/special_defense_title" />
+
+    <TextView
+        android:id="@+id/special_defense_stat_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/stats"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintStart_toEndOf="@id/special_defense_ev_count"
+        app:layout_constraintTop_toBottomOf="@+id/special_defense_title" />
+
+    <TextView
+        android:id="@+id/special_defense_stat_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/zero"
+        app:layout_constraintStart_toEndOf="@+id/special_defense_stat_label"
+        app:layout_constraintTop_toBottomOf="@+id/special_defense_title" />
+
+    <TextView
+        android:id="@+id/speed_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
         android:text="@string/speed"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/specialDefenseStatLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/special_defense_ev_label" />
 
     <TextView
-        android:id="@+id/speedStat"
+        android:id="@+id/speed_ev_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:text="@string/evs"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/speed_title" />
+
+    <TextView
+        android:id="@+id/speed_ev_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:text="@string/zero"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@id/speedStatLabel"
-        app:layout_constraintTop_toBottomOf="@id/specialDefenseStat" />
+        app:layout_constraintStart_toEndOf="@+id/speed_ev_label"
+        app:layout_constraintTop_toBottomOf="@+id/speed_title" />
+
+    <TextView
+        android:id="@+id/speed_stat_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/stats"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintStart_toEndOf="@id/speed_ev_count"
+        app:layout_constraintTop_toBottomOf="@+id/speed_title" />
+
+    <TextView
+        android:id="@+id/speed_stat_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/zero"
+        app:layout_constraintStart_toEndOf="@+id/speed_stat_label"
+        app:layout_constraintTop_toBottomOf="@+id/speed_title" />
 
     <Button
         android:id="@+id/trackDefeatedPokemon"
